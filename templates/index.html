@@ -1,0 +1,106 @@
+{% extends "base.html" %} {% block content %}
+
+<h1 class="text-body-emphasis">Загрузить CSV файл</h1>
+<p class="fs-5 col-md-8"></p>
+
+<div class="mb-5">
+    <a href="/load-csv" class="btn btn-primary btn-lg px-4">Загрузить CSV</a>
+</div>
+
+<hr class="col-3 col-md-2 mb-5">
+
+<div class="row g-5">
+    <div class="col-md-6">
+        <h2 class="text-body-emphasis">Администрирование</h2>
+        <p></p>
+        <ul class="list-unstyled ps-0">
+            <li>
+                <a class="icon-link mb-1" href="/addatm" rel="noopener" target="_blank">
+                    <svg class="bi" width="16" height="16">
+                        <use xlink:href="#arrow-right-circle"/>
+                    </svg>
+                    Добавить/удалить станцию заряда для электромобилей
+                </a>
+            </li>
+            <li>
+                <a class="icon-link mb-1" href="/addmechanics" rel="noopener" target="_blank">
+                    <svg class="bi" width="16" height="16">
+                        <use xlink:href="#arrow-right-circle"/>
+                    </svg>
+                    Добавить/удалить электрика
+                </a>
+            </li>
+            <li>
+                <a class="icon-link mb-1" href="/map" rel="noopener" target="_blank">
+                    <svg class="bi" width="16" height="16">
+                        <use xlink:href="#arrow-right-circle"/>
+                    </svg>
+                    Карта со станциями заряда для электромобилей
+                </a>
+            </li>
+            <li>
+                <a class="icon-link mb-1" href="/addcars" rel="noopener" target="_blank">
+                    <svg class="bi" width="16" height="16">
+                        <use xlink:href="#arrow-right-circle"/>
+                    </svg>
+                    Добавить/удалить энергосервисный автомобиль
+                </a>
+            </li>
+            <li>
+                <a class="icon-link mb-1" href="/clearmessages" rel="noopener" target="_blank">
+                  <svg class="bi" width="16" height="16"><use xlink:href="#arrow-right-circle"/></svg>
+                  Очистить сообщения
+                </a>
+              </li>
+        </ul>
+    </div>
+
+    <div class="col-md-6">
+        <h2 class="text-body-emphasis">Отчеты</h2>
+        <p></p>
+        <ul class="list-unstyled ps-0">
+            <li>
+                <a class="icon-link mb-1" href="/list-messages">
+                    <svg class="bi" width="16" height="16">
+                        <use xlink:href="#arrow-right-circle"/>
+                    </svg>
+                    Список статусов станций заряда для электромобилей
+                </a>
+                <a class="icon-link mb-1" href="/list-messages-atm">
+                    <svg class="bi" width="16" height="16">
+                        <use xlink:href="#arrow-right-circle"/>
+                    </svg>
+                    Список сообщений от станций заряда для электромобилей
+                </a>
+            </li>
+            <li>
+                <a class="icon-link mb-1" href="/listmechanics" rel="noopener" target="_blank">
+                    <svg class="bi" width="16" height="16">
+                        <use xlink:href="#arrow-right-circle"/>
+                    </svg>
+                    Список электриков
+                </a>
+            </li>
+            <li>
+                <a class="icon-link mb-1" href="/listatm" rel="noopener" target="_blank">
+                    <svg class="bi" width="16" height="16">
+                        <use xlink:href="#arrow-right-circle"/>
+                    </svg>
+                    Список станций заряда для электромобилей
+                </a>
+            </li>
+            <li>
+                <a class="icon-link mb-1" href="/listcars" rel="noopener" target="_blank">
+                    <svg class="bi" width="16" height="16">
+                        <use xlink:href="#arrow-right-circle"/>
+                    </svg>
+                    Список энергосервисных автомобилей
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}

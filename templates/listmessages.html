@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+
+<html>
+  <h1 class="text-body-emphasis">Список статусов автоматов с кофе</h1>
+  <head>
+    <title>Список сообщений</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <table>    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ffc4ac;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+    <table id="myTable">
+      <thead>
+          <tr>
+              <th onclick="sortTable(0)">Станция</th>
+              <th onclick="sortTable(1)">Дата последнего статуса</th>
+              <th onclick="sortTable(2)">Последний статус</th>
+              <th onclick="sortTable(3)">Процент работы за неделю</th>
+              <th onclick="sortTable(4)">Процент работы за месяц</th>
+          </tr>
+      </thead>
+    </tr>
+      {% for atm in args["atms"] %}
+      <tr>
+          <td>{{ atm.device_id }}</td>
+          <td>{{ atm.last_update }}</td>
+          <td>{{ atm.last_status }}</td>
+          <td>{{ atm.weekly_uptime_percent }}</td>
+          <td>{{ atm.monthly_uptime_percent }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+  <script>
+    function sortTable(columnIndex) {
+        const table = document.getElementById("myTable");
+        const rows = Array.from(table.rows).slice(1);
+        const direction = table.dataset.sortDirection === "asc" ? -1 : 1; 
+        const sortedRows = rows.sort((a, b) => {
+            const aText = a.cells[columnIndex].innerText;
+            const bText = b.cells[columnIndex].innerText;
+    
+            if (!isNaN(aText) && !isNaN(bText)) { 
+                return (parseFloat(aText) - parseFloat(bText)) * direction;
+            }
+            return aText.localeCompare(bText) * direction; 
+        });
+    
+
+        table.dataset.sortDirection = direction === 1 ? "asc" : "desc";
+    
+
+        const tbody = table.querySelector("tbody");
+        tbody.innerHTML = "";
+        sortedRows.forEach(row => tbody.appendChild(row));
+    }
+    </script>
+  </body>
+</html>
+
+{% endblock %}
+
+
